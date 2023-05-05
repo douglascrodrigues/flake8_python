@@ -26,12 +26,16 @@ class FilaBase(metaclass=abc.ABCMeta):
     @abc.abstractclassmethod
     def gera_senha_atual(self):
         ...
-    """metodo template
+    """Template Method
     """
     def atualiza_fila(self):
         self.reseta_fila()
         self.gera_senha_atual()
         self.insere_cliente()
+
+    @abc.abstractmethod
+    def estatistica(self, dia, agencia, flag_detail):
+        ...
 
     @abc.abstractclassmethod
     def chama_cliente(self, caixa: int):
