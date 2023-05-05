@@ -7,17 +7,12 @@ from fila_base import FilaBase
 
 
 class FilaNormal(FilaBase):
-    def gera_senhaatual(self) -> None:
-        self.senhaatual = f'NM{self.codigo}'
-
-    def atualiza_fila(self) -> None:
-        self.resetafila()
-        self.gerasenhaatual()
-        self.fila.append(self.senhaatual)
+    def gera_senha_atual(self) -> None:
+        self.senha_atual = f'NM{self.codigo}'
 
     def chama_cliente(self, caixa: int) -> str:
         cliente_atual: str = self.fila.pop(0)
-        self.clintesatendidos.append(cliente_atual)
+        self.clientes_atendidos.append(cliente_atual)
         #Template string
-        return (f'\nCliente atual: {cliente_atual},') + \
-            ('dirija-se ao caixa: {caixa} ')
+        return (f'\nCliente atual: {cliente_atual}, ') + \
+            (f'dirija-se ao caixa: {caixa} ')
