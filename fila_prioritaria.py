@@ -4,7 +4,7 @@
     variaveis, parametros e retornos -> mypy nome_arquivo.py
 """
 
-from typing import Dict, List, Union
+from typing import Union
 
 from fila_base import FilaBase
 from constantes import CODIGO_PRIORITARIO
