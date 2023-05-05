@@ -26,7 +26,8 @@ class FilaBase(metaclass=abc.ABCMeta):
     @abc.abstractclassmethod
     def gera_senha_atual(self):
         ...
-
+    """metodo template
+    """
     def atualiza_fila(self):
         self.reseta_fila()
         self.gera_senha_atual()
