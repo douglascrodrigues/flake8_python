@@ -8,6 +8,10 @@ from typing import Dict, List, Union
 
 from fila_base import FilaBase
 from constantes import CODIGO_PRIORITARIO
+from estatistica_resumida import EstatisticaResumida
+from estatistica_detalhada import EstatisticaDetalhada
+
+Classes = Union[EstatisticaResumida, EstatisticaDetalhada]
 
 
 class FilaPrioritaria(FilaBase):
@@ -20,7 +24,8 @@ class FilaPrioritaria(FilaBase):
         return (f'\nCliente atual: {cliente_atual}, ') +  \
             (f'dirija-se ao caixa: {caixa}')
 
-    def estatistica(self, dia: str, agencia: int, retorna_estatistica)-> dict:
-        estatistica = retorna_estatistica(dia, agencia)
-
-        return estatistica.roda_estatistica(self.clientes_atendidos)
+    def estatistica(self, retorna_estatistica: Classes)-> dict:
+        """
+            Utilização de injeção de dependencia
+        """
+        return retorna_estatistica.roda_estatistica(self.clientes_atendidos)
