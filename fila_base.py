@@ -1,15 +1,16 @@
 import abc
+from typing import List
 #import de funcoes e classes built-in
 
-#impor de classe do projeto, pula 1 linha
+#import de classe do projeto, pula 1 linha
 from constantes import TAMANHO_MAXIMO, TAMANHO_PADRAO_MINIMO
 
 
 class FilaBase(metaclass=abc.ABCMeta):
     codigo: int = 0
-    fila = []
-    clientes_atendidos = []
-    senha_atual: str = ""
+    fila: List[str] = []
+    clientes_atendidos: List[str] = []
+    senha_atual: str = ''
 
     def reseta_fila(self) -> None:
         if self.codigo >= TAMANHO_MAXIMO:
@@ -27,8 +28,8 @@ class FilaBase(metaclass=abc.ABCMeta):
         metodos criados.
     """
 
-    @abc.abstractclassmethod
-    def gera_senha_atual(self):
+    @abc.abstractmethod
+    def gera_senha_atual(self) -> None:
         ...
     """
         Template Method - Pra que criar um metodo igual que
@@ -46,6 +47,6 @@ class FilaBase(metaclass=abc.ABCMeta):
     #def estatistica(self, dia, agencia, flag_detail):
     #    ...
 
-    @abc.abstractclassmethod
-    def chama_cliente(self, caixa: int):
+    @abc.abstractmethod
+    def chama_cliente(self, caixa: int) -> str:
         ...
